@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>{% block title %}{% endblock %}</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='/fontawesome-free/css/all.css') }}">
+</head>
+
+<body class="loggedin">
+	<nav class="navtop">
+		<div>
+			<h1>CCTV Jurusan TIK</h1>
+			<a href="{{ url_for('home') }}"><i class="fas fa-home"></i>Home</a>
+			{% if(level == "1"): %}
+			<a href="{{ url_for('list_kamera') }}"><i class="fas fa-camera"></i>List Kamera</a>
+			<a href="{{ url_for('users') }}"><i class="fas fa-users"></i>User</a>
+			{% endif %}
+			<a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a>
+		</div>
+	</nav>
+	<div class="m-5">
+		{% block content %}{% endblock %}
+	</div>
+
+	<script src="{{ url_for('static', filename='jquery-3.6.0.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='popper.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
+
+</body>
+
+</html>

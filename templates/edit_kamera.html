@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+
+{% block title %}Edit Kamera{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="col-md-8 mx-auto">
+    <h4 class="mb-2">Edit Data Kamera</h4>
+    <div class="card">
+      <div class="card-body">
+
+        <form action="{{ url_for('update_kamera') }}" method="POST">
+          <input type="hidden" name="no" id="no" value="{{ kamera['no'] }}">
+          <div class="form-group">
+            <label>Lokasi Kamera:</label>
+            <input type="text" class="form-control" name="lokasi_kamera" value="{{ kamera['lokasi_kamera'] }}">
+          </div>
+          <div class="row">
+            <div class="form-group col-sm-8">
+              <label>IP Address:</label>
+              <input type="text" class="form-control" name="ip_address" value="{{ kamera['ip_address'] }}">
+            </div>
+            <div class="form-group col-sm-4">
+              <label>Port:</label>
+              <input type="text" class="form-control" name="port" value="{{ kamera['port'] }}">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-sm-6">
+              <label>Username:</label>
+              <input type="text" class="form-control" name="username" value="{{ kamera['username'] }}">
+            </div>
+            <div class="form-group col-sm-6">
+              <label>Password:</label>
+              <input type="password" class="form-control" name="password" value="{{ kamera['password'] }}">
+            </div>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-secondary" onclick="window.history.back()">Kembali</button>
+            <button class="btn btn-primary" type="submit">Simpan</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

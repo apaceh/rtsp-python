@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="row">
+  {% for camera_number in range(0, camera_list) %}
+  <div class="col-md-4">
+    <!-- <small class="text-muted">{{ cameras[camera_number]['lokasi'] }}</small> -->
+    <img src="{{ url_for('video_feed', index=camera_number) }}" id="{{ camera_number }}" class="img-thumbnail mb-3"
+      width="100%">
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
